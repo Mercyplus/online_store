@@ -34,7 +34,7 @@
                         </ul>
                         <ul class="menu__list">
                             <li class="menu__list-item">
-                                <button class="menu__list-link btn-login">
+                                <button class="menu__list-link btn-login signIn">
                                     Войти
                                 </button>
                             </li>
@@ -170,9 +170,26 @@
 
     <div class="modal hide" id="modal-login">
         <div class="modal__content">
-            <span>
-                123123123123123
-            </span>
+            <div class="sign-block">
+                <div class="sign">
+                    <h4 class="sign-head">Вход</h4>
+
+                    <div class="input-data">
+                        <input type="text" placeholder="Введите логин">
+                    </div>
+                    <div class="input-data">
+                        <input type="password" placeholder="Введите пароль">
+                    </div>
+                    <div class="input-btn">
+                        <input type="submit" value="Войти">
+                    </div>
+
+                    <p class="notReg">Еще не зарегистрированы?</p>
+                    <div class="input-btn notReg-btn">
+                        <input type="submit" value="Зарегистрироваться">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
