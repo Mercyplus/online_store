@@ -1,0 +1,25 @@
+/* PRODUCT-MAIN styles */
+
+.product-main__img-container {
+    position: relative;
+    max-width: 556px;
+    max-height: 377px;
+}
+
+.product-main__img {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-main__price {
+    font-weight: bold;
+    font-size: 42px;
+    line-height: 51px;
+    color: #000;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-align: right;
+    margin-bottom: -50px;
+}

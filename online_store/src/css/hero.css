@@ -1,0 +1,36 @@
+/* HERO styles */
+
+.hero {
+    background-color: #F9F6F1
+}
+
+.hero__title {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 52px;
+    letter-spacing: 0.04em;
+}
+
+.hero__left-side {
+    flex-shrink: 0;
+}
+
+.hero__btn-row {
+    display: flex;
+    align-items: center;
+}
+
+.hero__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero__btn {
+    flex-shrink: 0;
+}
+
+.hero__btn:not(:last-child) {
+    margin-right: 10px;
+}

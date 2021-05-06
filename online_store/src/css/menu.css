@@ -1,0 +1,46 @@
+/* MENU styles */
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu__list {
+    display: flex;
+    align-items: center;
+}
+
+.menu__list-item{
+    position: relative;
+    margin-left: 35px;
+}
+
+.menu__list-link{
+    position: relative;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.menu__list-link::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1.5px;
+    bottom: -3px;
+    left: auto;
+    right: 0;
+    background-color: #000;
+    transition: .3s;
+}
+
+.menu__list-link:hover::before{
+    width: 100%;
+    right: auto;
+    left: 0;
+}
+
+.menu__list-item:first-child{
+    margin-left: 0;
+}
