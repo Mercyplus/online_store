@@ -63,15 +63,13 @@ header{
 
  .hide {
      opacity: 0;
-     width: 0;
-     height: 0;
+     z-index: -1;
      pointer-events: none;
  }
 
  .show{
      opacity: 1;
-     width: auto;
-     height: auto;
+     z-index: 1;
      pointer-events: auto;
  }
 
@@ -447,97 +445,96 @@ header{
 
 .modal__content {
     position: relative;
-    padding: 20px;
+    padding: 50px;
     width: 100%;
     height: 100%;
-    max-width: 600px;
-    max-height: 600px;
+    max-width: 400px;
+    max-height: 400px;
     background-color: #fff;
     border-radius: 10px;
     z-index: 2;
 }
 
 /*==========Style for sign-block==========*/
-.sign-block {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background: rgba(33, 33, 33, .2);
-    z-index: 200;
-    box-sizing: border-box;
-}
+
+/* TODO переделать стилли */
 
 .sign {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.sign__inner {
     background: #fff;
-    width: 350px;
-    height: 400px;
+    max-width: 250px;
     border-radius: 20px;
 }
 
-.sign-head {
+.sign__title {
     font-size: 35px;
-    margin: 10px 0;
+    margin-bottom: 30px;
     padding: 0;
     text-align: center;
-    user-select: none;
 }
 
-.input-data, .input-btn {
-    width: 70%;
-    margin: 25px auto;
+.sign__input-container {
+    margin-bottom: 15px;
 }
 
-.input-data input {
+
+.sign__input{
     width: 100%;
     border: 2px solid rgba(114, 114, 114, .5);
     border-radius: 15px;
-    outline: none;
     font-size: 18px;
-    font-family: 'PT Sans', sans-serif;
+    line-height: 22px;
     transition: .3s;
-    height: 25;
     text-align: center;
+    min-height: 30px;
 }
 
-.input-data input:focus {
-    border: 2px solid #e01533;
+.sign__input:focus {
+    border-color: #e01533;
     color: #e01533;
 }
 
-.input-btn input {
+.sign__btn {
     width: 100%;
     border: 2px solid #e01533;
     font-size: 16px;
-    color: #fff;
     font-weight: bold;
     border-radius: 20px;
-    background: #e01533;
     padding: 6px 0;
     transition: .3s;
 }
 
-.input-btn input:hover {
-    background: #fff;
-    color: #e01533;
-}
-
-.notReg {
-    font-size: 16px;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    user-select: none;
-}
-
-.notReg-btn input {
-    background: #fff;
-    color: #e01533;
-}
-
-.notReg-btn input:hover {
-    background: #e01533;
+.sign__login {
     color: #fff;
+    background-color: #e01533;
+    margin-bottom: 15px;
+}
+
+.sign__reg {
+    color: #e01533;
+    background-color: #fff;
+}
+
+.sign__login:hover {
+    color: #e01533;
+    background-color: #fff;
+}
+
+.sign__reg:hover {
+    color: #fff;
+    background-color: #e01533;
+}
+
+.sign__not-reg {
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    color: #302f2f;
 }
