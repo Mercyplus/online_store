@@ -1,0 +1,39 @@
+{% load static %}
+<header class="header">
+    <div class="container">
+        <nav class="menu header__menu">
+        <ul class="menu__list">
+            <li class="menu__list-item">
+                <a class="menu__list-link" href="#">
+                    Для мужчин
+                </a>
+            </li>
+            <li class="menu__list-item">
+                <a class="menu__list-link" href="#">
+                    Для женщин
+                </a>
+            </li>
+            <li class="menu__list-item">
+                <a class="menu__list-link" href="#">
+                    Для детей
+                </a>
+            </li>
+        </ul>
+        <ul class="menu__list">
+            <li class="menu__list-item">
+                <button class="menu__list-link btn-login signIn">
+                    Войти
+                </button>
+            </li>
+            <li class="menu__list-item">
+                <button class="cart-button">
+                    <img class="cart-button__img" src="{% static 'images/cart.svg' %}" alt="">
+                    <span class="cart-button__count">
+                                        10
+                                    </span>
+                </button>
+            </li>
+        </ul>
+    </nav>
+    </div>
+</header>

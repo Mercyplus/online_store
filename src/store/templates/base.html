@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'scripts/main.js' %}" defer></script>
+    <title>{% block title %}Online Store{% endblock %}</title>
+</head>
+<body>
+
+{% include 'navbar.html' %}
+
+{% block content %}
+{% endblock %}
+
+{% include 'footer.html' %}
+
+    <div class="modal hide" id="modal-login">
+        <div class="modal__content">
+            <div class="sign">
+                <div class="sign__inner">
+                    <h4 class="sign__title">Вход</h4>
+                    <div class="sign__input-container">
+                        <input class="sign__input" type="text" placeholder="Введите логин">
+                    </div>
+                    <div class="sign__input-container">
+                        <input class="sign__input" type="password" placeholder="Введите пароль">
+                    </div>
+                    <button class="sign__btn sign__login" type="submit">
+                        Войти
+                    </button>
+                    <p class="sign__not-reg">Еще не зарегистрированы?</p>
+                    <button class="sign__btn sign__reg" id="open-modal-reg">
+                        Зарегистрироваться
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal hide" id="modal-registr">
+        <div class="modal__content">
+            <div class="sign">
+                <div class="sign__inner">
+                    <h4 class="sign__title">Регистрация</h4>
+                    <div class="sign__input-container">
+                        <input class="sign__input" type="text" placeholder="Логин">
+                    </div>
+                    <div class="sign__input-container">
+                        <input class="sign__input" type="password" placeholder="Пароль">
+                    </div>
+                    <div class="sign__input-container">
+                        <input class="sign__input" type="password" placeholder="Повторите пароль">
+                    </div>
+                    <button class="sign__btn sign__login" type="submit">
+                        Зарегистрироваться
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
