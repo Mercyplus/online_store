@@ -20,12 +20,12 @@
 			<h5 class="text-info font-italic mb-4">
 								{{product.price}}
 							</h5>
-			<p class="product_desc">Product Description</p>
+			<p class="product_desc">Описание</p>
 			<p class="text-justify product_text">{{product.description}}</p>
 			{% if product.stock <= 0 %}
 			<p class="text-justify product_text">Out Of Stock</p>
 			{% else %}
-			<a href="{% url 'cart_add' product.id %}">Add To Cart</a>
+			<a href="{% url 'cart_add' product.id %}">В корзину</a>
 			{% endif %}
 		</div>
 	</div>
