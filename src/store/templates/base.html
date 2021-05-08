@@ -12,12 +12,18 @@
 </head>
 <body>
 
-{% include 'navbar.html' %}
 
-{% block content %}
-{% endblock %}
 
-{% include 'footer.html' %}
+<div class="wrapper">
+
+    {% include 'header.html' %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% include 'footer.html' %}
+
+</div>
 
     <div class="modal hide" id="modal-login">
         <div class="modal__content">
