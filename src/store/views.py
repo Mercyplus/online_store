@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Category, Product
 from cart.forms import CartAddProductForm
-from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.models import Group, User
 from .forms import SignUpForm
 from django.contrib.auth.forms import AuthenticationForm
@@ -9,14 +8,22 @@ from django.contrib.auth import login, authenticate, logout
 
 
 def home(request, category_slug=None):
+	prod = Product.objects.get(id=9)
+	counts = Product.objects.all()[:4]
 	category_page = None
 	products = None
 	if category_slug != None:
 		category_page = get_object_or_404(Category, slug=category_slug)
 		products = Product.objects.filter(category=category_page, available=True)
+		return render(request, 'products_by_cat.html', {'category': category_page, 'products': products})
 	else:
 		products = Product.objects.all().filter(available=True)
-	return render(request, 'home.html', {'category': category_page, 'products': products})
+		return render(request, 'home.html', {'category': category_page, 'products': products, 'prod': prod, 'counts': counts})
+
+
+def all_products(request):
+	products = Product.objects.all()
+	return render(request, 'all_products.html', {'products': products})
 
 
 def product(request, category_slug, product_slug):
@@ -62,4 +69,4 @@ def loginView(request):
 
 def signoutView(request):
 	logout(request)
-	return redirect('login')
+	return redirect('home')

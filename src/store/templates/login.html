@@ -5,16 +5,13 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-	Log in
+	Вход
 {% endblock %}
 
 {% block content %}
 
 	<div class="container">
 		<br>
-		<h1 class="product_title text-center">
-			Login or Create a New Account
-		</h1>
 		<div class="row">
 			<div class="col-12 col-sm-12 col-lg-6 text-center custom_div" >
 				<br>
@@ -22,19 +19,24 @@
 					New User
 				</h2>
 				<br>
-				<a href="{% url 'signup' %}" class="btn btn-secondary">Create New User</a>
+				<a href="{% url 'signup' %}" class="btn btn-secondary">Регистрация</a>
 			</div>
 			<div class="col-12 col-sm-12 col-md-12 col-lg-6 bg-light">
 				<div>
 					<br>
 					<h2 class="product_title">
-						Registered Users Only
+						Авторизация
 					</h2>
 					<form method="post">
 						{% csrf_token %}
-						<p>{{ form | crispy }}</p>
-						<button type='submit' class="btn btn-secondary">Log in</button>
+						<label for="email"><b>Email</b></label>
+						{{ form.username }}
+						<br>
+						<label for="psw"><b>Password</b></label>
+						{{ form.password }}
 
+
+						<button type='submit' class="btn btn-secondary">Вход</button>
 					</form>
 					<br>
 				</div>

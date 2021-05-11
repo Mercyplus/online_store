@@ -25,7 +25,11 @@
 			{% if product.stock <= 0 %}
 			<p class="text-justify product_text">Out Of Stock</p>
 			{% else %}
-			<a href="{% url 'cart_add' product.id %}">В корзину</a>
+			<form action="{% url 'cart_add' product.id %}" method="post">
+				{{ cart_product_form }}
+				{% csrf_token %}
+				<input type="submit" value="В корзину">
+			</form>
 			{% endif %}
 		</div>
 	</div>

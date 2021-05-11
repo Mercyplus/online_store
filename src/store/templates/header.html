@@ -2,36 +2,58 @@
 <header class="header">
     <div class="container">
         <nav class="menu header__menu">
+            <ul class="menu__list">
+                {% for category in links %}
+                <li class="menu__list-item">
+                    <a class="menu__list-link" href="{{category.get_url}}">
+                        {{category.name}}
+                    </a>
+                </li>
+                <!--            <li class="menu__list-item">-->
+                <!--                <a class="menu__list-link" href="#">-->
+                <!--                    Для женщин-->
+                <!--                </a>-->
+                <!--            </li>-->
+                <!--            <li class="menu__list-item">-->
+                <!--                <a class="menu__list-link" href="#">-->
+                <!--                    Для детей-->
+                <!--                </a>-->
+                <!--            </li>-->
+                {% endfor %}
+            </ul>
+
         <ul class="menu__list">
             <li class="menu__list-item">
-                <a class="menu__list-link" href="#">
-                    Для мужчин
-                </a>
-            </li>
-            <li class="menu__list-item">
-                <a class="menu__list-link" href="#">
-                    Для женщин
-                </a>
-            </li>
-            <li class="menu__list-item">
-                <a class="menu__list-link" href="#">
-                    Для детей
-                </a>
-            </li>
-        </ul>
-        <ul class="menu__list">
-            <li class="menu__list-item">
-                <button class="menu__list-link btn-login signIn">
+                {% if request.user.is_authenticated and request.user.first_name %}
+                <li class="nav-item"><span class="nav-link text-light text-uppercase font-weight-bold px-3">Welcome, {{ request.user.first_name }}</span></li>
+
+                <li class="nav-item"><a class="nav-link text-light text-uppercase font-weight-bold px-3" href="{% url 'signout' %}">Выход</a></li>
+
+                {% else %}
+                <a href="{% url 'login' %}"><button class="menu__list-link btn-login signIn">
                     Войти
-                </button>
+                </button></a>
+                {% endif %}
+
             </li>
             <li class="menu__list-item">
-                <button class="cart-button">
+                <a href="{% url 'cart_detail' %}" class="cart-button">
+                    {% with total_items=cart|length %}
+                    {% if cart|length > 0 %}
+
                     <img class="cart-button__img" src="{% static 'images/cart.svg' %}" alt="">
                     <span class="cart-button__count">
-                                        10
-                                    </span>
-                </button>
+                                {{ total_items }}
+                            </span>
+                </a>
+                {% else %}
+                <img class="cart-button__img" src="{% static 'images/cart.svg' %}" alt="">
+                <span class="cart-button__count">
+                            {{ total_items }}
+                        </span>
+                {% endif %}
+                {% endwith %}
+                </a>
             </li>
         </ul>
     </nav>

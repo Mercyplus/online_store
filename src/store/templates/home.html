@@ -14,21 +14,18 @@
         <div class="container">
             <div class="hero__inner">
                 <div class="hero__left-side">
-                    <h2 class="hero__title">
-                        Красовак (классный)
-                    </h2>
+                        <h2 class="hero__title">
+                            {{prod.name}}
+                        </h2>
                     <div class="hero__btn-row">
-                        <button class="btn hero__btn">
-                            Добавить в корзину
-                        </button>
-                        <button class="btn hero__btn">
+                        <button class="btn hero__btn"><a href="{{prod.get_url}}">
                             Подробнее
-                        </button>
+                        </a></button>
                     </div>
                 </div>
                 <div class="hero__right-side product-main">
                     <div class="product-main__price">
-                        1 900 ₽
+                        {{prod.price}} ₽
                     </div>
                     <div class="product-main__img-container">
                         <img class="product-main__img" src="{% static 'images/products/1.png' %}" alt="">
@@ -42,43 +39,29 @@
         <div class="container">
             <div class="category__inner">
                 <div class="category__row">
-                    <div class="category__item-container">
-                        <div class="category__item">
-                            <div class="category__left-side">
-                                <h4 class="category__title">
-                                    МУЖСКАЯ КОЛЛЕКЦИЯ
-                                </h4>
-                                <a class="btn category__link" href="#">
-                                    <img class="category__link-img" src="{% static 'images/arrow.svg' %}" alt="">
+                    {% for category in links %}
+                        <div class="category__item-container">
+                            <div class="category__item">
+                                <div class="category__left-side">
+                                    <h4 class="category__title">
+                                        {{category.name}}
+                                    </h4>
+                                    <a class="btn category__link" href="{{category.get_url}}">
+                                        <img class="category__link-img" src="{% static 'images/arrow.svg' %}" alt="">
                                     </a>
-                            </div>
-                            <div class="category__right-side">
-                                <div class="category__img-container">
-                                    <img class="category__img" src="{% static 'images/categories/1.png' %}" alt="">
+                                </div>
+                                <div class="category__right-side">
+                                    <div class="category__img-container">
+                                        <img class="category__img" src="{{category.image.url}}" alt="">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="category__item-container">
-                        <div class="category__item">
-                            <div class="category__left-side">
-                                <h4 class="category__title">
-                                    ЖЕНСКАЯ КОЛЛЕКЦИЯ
-                                </h4>
-                                <a class="btn category__link" href="#">
-                                    <img class="category__link-img" src="{% static 'images/arrow.svg' %}" alt="">
-                                    </a>
-                            </div>
-                            <div class="category__right-side">
-                                <div class="category__img-container">
-                                    <img class="category__img" src="{% static 'images/categories/2.png' %}" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
+
     </div>
     <section class="catalog">
         <div class="container">
@@ -87,22 +70,22 @@
                     Новые модели
                 </h2>
                 <div class="catalog__row">
-                    {% for product in products %}
+                    {% for count in counts %}
                         <div class="catalog__item-container">
-                            <a class="catalog__item" href="{{product.get_url}}">
+                            <a class="catalog__item" href="{{count.get_url}}">
                                 <div class="catalog__item-inner">
                                     <div class="catalog__img-container">
-                                        <img class="catalog__img" src="{{product.image.url}}" alt="">
+                                        <img class="catalog__img" src="{{count.image.url}}" alt="">
                                     </div>
                                     <div class="catalog__price">
-                                        {{product.price}} ₽
+                                        {{count.price}} ₽
                                     </div>
                                     <div class="catalog__desc">
-<!--                                                <span class="catalog__model">-->
-<!--                                                    Levi's-->
-<!--                                                </span>/-->
+                                                <span class="catalog__model">
+                                                    Levi's
+                                                </span>/
                                         <span class="catalog__category">
-                                            {{product.name}}
+                                            {{count.name}}
                                         </span>
                                     </div>
                                 </div>
@@ -110,10 +93,10 @@
                         </div>
                     {% endfor %}
                 </div>
-                <button class="btn catalog__btn">
+                <a href="{% url 'products' %}" class="btn catalog__btn">
                     <span class="catalog__btn-text">ВСЕ МОДЕЛИ</span>
                     <img class="catalog__btn-img" src="{% static 'images/arrow.svg' %}" alt="">
-                </button>
+                </a>
             </div>
         </div>
     </section>

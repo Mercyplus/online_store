@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+	{{ category.name }}
+{% endblock %}
+
+{% block content %}
+
+
+<main class="main">
+    <section class="catalog">
+        <div class="container">
+            <div class="catalog__inner">
+                <h2 class="catalog__title">
+                   {{ category.name }}
+                </h2>
+                <div class="catalog__row">
+                    {% for product in products %}
+                        <div class="catalog__item-container">
+                            <a class="catalog__item" href="{{product.get_url}}">
+                                <div class="catalog__item-inner">
+                                    <div class="catalog__img-container">
+                                        <img class="catalog__img" src="{{product.image.url}}" alt="">
+                                    </div>
+                                    <div class="catalog__price">
+                                        {{product.price}} ₽
+                                    </div>
+                                    <div class="catalog__desc">
+<!--                                                <span class="catalog__model">-->
+<!--                                                    Levi's-->
+<!--                                                </span>/-->
+                                        <span class="catalog__category">
+                                            {{product.name}}
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
