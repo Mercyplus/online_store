@@ -8,7 +8,7 @@ from django.contrib.auth import login, authenticate, logout
 
 
 def home(request, category_slug=None):
-	prod = Product.objects.get(id=9)
+	prod = Product.objects.get(id=4)
 	counts = Product.objects.all()[:4]
 	category_page = None
 	products = None

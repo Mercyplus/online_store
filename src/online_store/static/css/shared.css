@@ -12,6 +12,9 @@ html {
 body {
     font-family: 'Montserrat', sans-serif;
     height: 100%;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000;
 }
 
 ul, ol {

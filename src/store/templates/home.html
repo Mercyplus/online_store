@@ -9,96 +9,94 @@
 {% block content %}
 
 
-<main class="main">
-    <div class="hero">
-        <div class="container">
-            <div class="hero__inner">
-                <div class="hero__left-side">
-                        <h2 class="hero__title">
-                            {{prod.name}}
-                        </h2>
-                    <div class="hero__btn-row">
-                        <button class="btn hero__btn"><a href="{{prod.get_url}}">
-                            Подробнее
-                        </a></button>
-                    </div>
+<div class="hero">
+    <div class="container">
+        <div class="hero__inner">
+            <div class="hero__left-side">
+                    <h2 class="hero__title">
+                        {{prod.name}}
+                    </h2>
+                <div class="hero__btn-row">
+                    <button class="btn hero__btn"><a href="{{prod.get_url}}">
+                        Подробнее
+                    </a></button>
                 </div>
-                <div class="hero__right-side product-main">
-                    <div class="product-main__price">
-                        {{prod.price}} ₽
-                    </div>
-                    <div class="product-main__img-container">
-                        <img class="product-main__img" src="{% static 'images/products/1.png' %}" alt="">
-                    </div>
+            </div>
+            <div class="hero__right-side product-main">
+                <div class="product-main__price">
+                    {{prod.price}} ₽
+                </div>
+                <div class="product-main__img-container">
+                    <img class="product-main__img" src="{{prod.image.url}}" alt="">
                 </div>
             </div>
         </div>
     </div>
-    <div class="box"></div>
-    <div class="category">
-        <div class="container">
-            <div class="category__inner">
-                <div class="category__row">
-                    {% for category in links %}
-                        <div class="category__item-container">
-                            <div class="category__item">
-                                <div class="category__left-side">
-                                    <h4 class="category__title">
-                                        {{category.name}}
-                                    </h4>
-                                    <a class="btn category__link" href="{{category.get_url}}">
-                                        <img class="category__link-img" src="{% static 'images/arrow.svg' %}" alt="">
-                                    </a>
-                                </div>
-                                <div class="category__right-side">
-                                    <div class="category__img-container">
-                                        <img class="category__img" src="{{category.image.url}}" alt="">
-                                    </div>
+</div>
+<div class="box"></div>
+<div class="category">
+    <div class="container">
+        <div class="category__inner">
+            <div class="category__row">
+                {% for category in links %}
+                    <div class="category__item-container">
+                        <div class="category__item">
+                            <div class="category__left-side">
+                                <h4 class="category__title">
+                                    {{category.name}}
+                                </h4>
+                                <a class="btn category__link" href="{{category.get_url}}">
+                                    <img class="category__link-img" src="{% static 'images/arrow.svg' %}" alt="">
+                                </a>
+                            </div>
+                            <div class="category__right-side">
+                                <div class="category__img-container">
+                                    <img class="category__img" src="{{category.image.url}}" alt="">
                                 </div>
                             </div>
                         </div>
-                    {% endfor %}
-                </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
-
     </div>
-    <section class="catalog">
-        <div class="container">
-            <div class="catalog__inner">
-                <h2 class="catalog__title">
-                    Новые модели
-                </h2>
-                <div class="catalog__row">
-                    {% for count in counts %}
-                        <div class="catalog__item-container">
-                            <a class="catalog__item" href="{{count.get_url}}">
-                                <div class="catalog__item-inner">
-                                    <div class="catalog__img-container">
-                                        <img class="catalog__img" src="{{count.image.url}}" alt="">
-                                    </div>
-                                    <div class="catalog__price">
-                                        {{count.price}} ₽
-                                    </div>
-                                    <div class="catalog__desc">
-                                                <span class="catalog__model">
-                                                    Levi's
-                                                </span>/
-                                        <span class="catalog__category">
-                                            {{count.name}}
-                                        </span>
-                                    </div>
+
+</div>
+<section class="catalog">
+    <div class="container">
+        <div class="catalog__inner">
+            <h2 class="catalog__title">
+                Новые модели
+            </h2>
+            <div class="catalog__row">
+                {% for count in counts %}
+                    <div class="catalog__item-container">
+                        <a class="catalog__item" href="{{count.get_url}}">
+                            <div class="catalog__item-inner">
+                                <div class="catalog__img-container">
+                                    <img class="catalog__img" src="{{count.image.url}}" alt="">
                                 </div>
-                            </a>
-                        </div>
-                    {% endfor %}
-                </div>
-                <a href="{% url 'products' %}" class="btn catalog__btn">
-                    <span class="catalog__btn-text">ВСЕ МОДЕЛИ</span>
-                    <img class="catalog__btn-img" src="{% static 'images/arrow.svg' %}" alt="">
-                </a>
+                                <div class="catalog__price">
+                                    {{count.price}} ₽
+                                </div>
+                                <div class="catalog__desc">
+                                            <span class="catalog__model">
+                                                Levi's
+                                            </span>/
+                                    <span class="catalog__category">
+                                        {{count.name}}
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
             </div>
+            <a href="{% url 'products' %}" class="btn catalog__btn">
+                <span class="catalog__btn-text">ВСЕ МОДЕЛИ</span>
+                <img class="catalog__btn-img" src="{% static 'images/arrow.svg' %}" alt="">
+            </a>
         </div>
-    </section>
-</main>
+    </div>
+</section>
 {% endblock %}
