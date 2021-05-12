@@ -3,34 +3,56 @@
 {% load static %}
 
 {% block title %}
-	Product
+Product
 {% endblock %}
 
 {% block content %}
+<div class="product">
 	<div class="container py-5">
-		<div class="row mt-5">
-			<div class="col-10 mx-auto col-md-6 my-3">
-				<img src="{{product.image.url}}">
+		<div class="product__header">
+			<div class="product__inner">
+				<div class="product__left-container">
+					<div class="product__image-block">
+						<img class="product__image" src="{{product.image.url}}">
+					</div>
+				</div>
+				<div class="product__right-container">
+					<h5 class="product__title">{{product.name}}</h5>
+					<div class="product__item">
+						<span class="product__item-key">Цена</span>
+						<span class="product__item-value">{{product.price}}</span>
+					</div>
+					<div class="product__item">
+						<span class="product__item-key">Количество</span>
+						<form class="counter" action="#" method="POST">
+							<button class="counter__btn counter__btn--minus" type="button"></button>
+							<input class="counter__input" type="text" value="999" readonly>
+							<button class="counter__btn counter__btn--plus" type="button"></button>
+						</form>
+					</div>
+					{% if product.stock <= 0 %}
+						{% else %}
+						<form class="product__form" action="{% url 'cart_add' product.id %}" method="post">
+							{{ cart_product_form }}
+							{% csrf_token %}
+							<button class="btn" type="submit">
+								В корзину
+							</button>
+						</form>
+						{% endif %}
+				</div>
+				<div class="product__main">
+					<div class="product__desc">
+						<h4 class="product__desc-title">
+							Описание
+						</h4>
+						<p class="product__desc-text">
+							{{ product.description }}
+						</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="col-10 mx-auto col-md-6 my-3">
-		<div>
-			<h1 class="product_title">{{product.name}}</h1>
-			<h5 class="text-info font-italic mb-4">
-								{{product.price}}
-							</h5>
-			<p class="product_desc">Описание</p>
-			<p class="text-justify product_text">{{product.description}}</p>
-			{% if product.stock <= 0 %}
-			<p class="text-justify product_text">Out Of Stock</p>
-			{% else %}
-			<form action="{% url 'cart_add' product.id %}" method="post">
-				{{ cart_product_form }}
-				{% csrf_token %}
-				<input type="submit" value="В корзину">
-			</form>
-			{% endif %}
-		</div>
-	</div>
+</div>
 {% endblock %}

@@ -9,26 +9,25 @@
 {% block content %}
 
 
-<main class="main">
-    <div class="hero">
-        <div class="container">
-            <div class="hero__inner">
-                <div class="hero__left-side">
-                        <h2 class="hero__title">
-                            {{prod.name}}
-                        </h2>
-                    <div class="hero__btn-row">
-                        <button class="btn hero__btn"><a href="{{prod.get_url}}">
-                            Подробнее
-                        </a></button>
-                    </div>
+<div class="hero">
+    <div class="container">
+        <div class="hero__inner">
+            <div class="hero__left-side">
+                    <h2 class="hero__title">
+                        {{prod.name}}
+                    </h2>
+                <div class="hero__btn-row">
+                    <button class="btn hero__btn"><a href="{{prod.get_url}}">
+                        Подробнее
+                    </a></button>
                 </div>
-                <div class="hero__right-side product-main">
-                    <div class="product-main__price">
-                        {{prod.price}} ₽
-                    </div>
-                    <div class="product-main__img-container">
-                        <img class="product-main__img" src="{% static 'images/products/1.png' %}" alt="">
+            </div>
+            <div class="hero__right-side product-main">
+                <div class="product-main__price">
+                    {{prod.price}} ₽
+                </div>
+                <div class="product-main__img-container">
+                    <img class="product-main__img" src="{{prod.image.url}}" alt="">
                     </div>
                 </div>
             </div>
@@ -99,7 +98,6 @@
             </div>
         </div>
     </section>
-</main>
 
 
 {% endblock %}

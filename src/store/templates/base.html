@@ -18,58 +18,13 @@
 
     {% include 'header.html' %}
 
-    {% block content %}
-    {% endblock %}
+    <main class="main">
+        {% block content %}
+        {% endblock %}
+    </main>
 
-{% include 'footer.html' %}
+    {% include 'footer.html' %}
 </div>
-<!--    <div class="modal hide" id="modal-login">-->
-<!--        <div class="modal__content">-->
-<!--            <div class="sign">-->
-<!--                <div class="sign__inner">-->
-<!--                    <h4 class="sign__title">Вход</h4>-->
-<!--                    <form action="" method="post">-->
-<!--                        {% csrf_token %}-->
-<!--						<p>{{ form }}</p>-->
-<!--                        <div class="sign__input-container">-->
-<!--                            <input class="sign__input" type="text" placeholder="Введите логин">-->
-<!--                        </div>-->
-<!--                        <div class="sign__input-container">-->
-<!--                            <input class="sign__input" type="password" placeholder="Введите пароль">-->
-<!--                        </div>-->
-<!--                        <button class="sign__btn sign__login" type="submit">-->
-<!--                            Войти-->
-<!--                        </button>-->
-<!--                    </form>-->
-<!--                    <p class="sign__not-reg">Еще не зарегистрированы?</p>-->
-<!--                    <button class="sign__btn sign__reg" id="open-modal-reg">-->
-<!--                        Зарегистрироваться-->
-<!--                    </button>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
 
-<!--    <div class="modal hide" id="modal-registr">-->
-<!--        <div class="modal__content">-->
-<!--            <div class="sign">-->
-<!--                <div class="sign__inner">-->
-<!--                    <h4 class="sign__title">Регистрация</h4>-->
-<!--                    <div class="sign__input-container">-->
-<!--                        <input class="sign__input" type="text" placeholder="Логин">-->
-<!--                    </div>-->
-<!--                    <div class="sign__input-container">-->
-<!--                        <input class="sign__input" type="password" placeholder="Пароль">-->
-<!--                    </div>-->
-<!--                    <div class="sign__input-container">-->
-<!--                        <input class="sign__input" type="password" placeholder="Повторите пароль">-->
-<!--                    </div>-->
-<!--                    <button class="sign__btn sign__login" type="submit">-->
-<!--                        Зарегистрироваться-->
-<!--                    </button>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
 </body>
 </html>
