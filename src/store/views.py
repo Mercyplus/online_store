@@ -8,6 +8,7 @@ from django.contrib.auth import login, authenticate, logout
 
 
 def home(request, category_slug=None):
+	prod = Product.objects.get(id=9)
 	counts = Product.objects.all()[:4]
 	category_page = None
 	products = None
@@ -17,7 +18,7 @@ def home(request, category_slug=None):
 		return render(request, 'products_by_cat.html', {'category': category_page, 'products': products})
 	else:
 		products = Product.objects.all().filter(available=True)
-		return render(request, 'home.html', {'category': category_page, 'products': products, 'counts': counts})
+		return render(request, 'home.html', {'category': category_page, 'products': products, 'counts': counts, 'prod': prod})
 
 
 def all_products(request):

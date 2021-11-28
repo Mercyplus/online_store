@@ -1,0 +1,23 @@
+anyio==3.3.4
+asgiref==3.4.1
+backports.entry-points-selectable==1.1.0
+certifi==2021.10.8
+charset-normalizer==2.0.7
+distlib==0.3.3
+Django==3.2.9
+-e c:\users\saza0\onedrive\рабочий стол\проекты на python\django проекты\online_store\online_store\src\src\django-crispy-forms
+fastapi==0.70.0
+filelock==3.3.2
+idna==3.3
+Pillow==8.4.0
+platformdirs==2.4.0
+pydantic==1.8.2
+pytz==2021.3
+requests==2.26.0
+six==1.16.0
+sniffio==1.2.0
+sqlparse==0.4.2
+starlette==0.16.0
+typing-extensions==3.10.0.2
+urllib3==1.26.7
+virtualenv==20.10.0
