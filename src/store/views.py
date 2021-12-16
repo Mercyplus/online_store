@@ -15,15 +15,28 @@ def home(request, category_slug=None):
 	if category_slug != None:
 		category_page = get_object_or_404(Category, slug=category_slug)
 		products = Product.objects.filter(category=category_page, available=True)
-		return render(request, 'products_by_cat.html', {'category': category_page, 'products': products})
+		data = {
+			'category': category_page,
+			'products': products
+		}
+		return render(request, 'products_by_cat.html', data)
 	else:
 		products = Product.objects.all().filter(available=True)
-		return render(request, 'home.html', {'category': category_page, 'products': products, 'counts': counts, 'prod': prod})
+		data = {
+			'category': category_page,
+			'products': products,
+			'counts': counts,
+			'prod': prod
+		}
+		return render(request, 'home.html', data)
 
 
 def all_products(request):
 	products = Product.objects.all()
-	return render(request, 'all_products.html', {'products': products})
+	data = {
+		'products': products
+	}
+	return render(request, 'all_products.html', data)
 
 
 def product(request, category_slug, product_slug):
@@ -32,7 +45,11 @@ def product(request, category_slug, product_slug):
 		product = Product.objects.get(category__slug=category_slug, slug=product_slug)
 	except Exception as e:
 		raise e
-	return render(request, 'product.html', {'product': product, 'cart_product_form': cart_product_form})
+	data = {
+		'product': product,
+		'cart_product_form': cart_product_form
+	}
+	return render(request, 'product.html', data)
 
 
 def signUpView(request):
